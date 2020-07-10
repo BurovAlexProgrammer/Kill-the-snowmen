@@ -11,9 +11,17 @@ public static class GlobalExtension
     /// Write message to console.
     /// </summary>
     /// <param name="message">Message</param>
-    public static void log(string message)
+    public static void Log(string message)
     {
         Debug.Log(message);
+    }
+    public static void Error(string message)
+    {
+        Debug.LogError(message);
+    }
+    public static void Error<T>(T ob)
+    {
+        Debug.LogError(typeof(T) + " is null.");
     }
 
 
@@ -80,7 +88,6 @@ public static class GlobalExtension
         }
     }
 
-
     /// <summary>
     /// Return children Transform with tag. 
     /// </summary>
@@ -110,6 +117,15 @@ public static class GlobalExtension
             return (obj as Component) == null;
         else
             return obj == null;
+    }
+
+    /// <summary>
+    /// Check is null or destroyed current object and log error to console.
+    /// </summary>
+    /// <param name="obj"></param>
+    public static void CheckExist(this object obj)
+    {
+        if (obj.NotExist()) Error(obj);
     }
 
     /// <summary>

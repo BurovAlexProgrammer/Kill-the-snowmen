@@ -6,10 +6,12 @@ public class Layers
 	public const string IGNORE_RAYCAST = "Ignore Raycast";
 	public const string WATER = "Water";
 	public const string UI = "UI";
+	public const string RAY_CASTER_PLANE = "RayCasterPlane";
 
 	public const int DEFAULT_INT = 0;
 	public const int TRANSPARENT_FX_INT = 1;
 	public const int IGNORE_RAYCAST_INT = 2;
 	public const int WATER_INT = 4;
 	public const int UI_INT = 5;
+	public const int RAY_CASTER_PLANE_INT = 8;
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GlobalExtension;
 
-public class GameController : MonoBehaviour
+public class SystemController : MonoBehaviour
 {
     public CameraController cameraController;
     private bool sceneChanging = false;

@@ -6,14 +6,20 @@ using static GlobalExtension;
 
 public class CameraController : MonoBehaviour
 {
+    public Camera camera;
     public bool fadeInEffect = true;
-    private Animation cameraFadeAnimation;
-    public bool IsFadeOutPlaying { get { return cameraFadeAnimation.IsPlaying("FadeOut"); } }
-    public bool IsFadeInPlaying { get { return cameraFadeAnimation.IsPlaying("FadeIn"); } }
+    public GameObject fadeFrame;
+    private Animation fadeAnimation;
+    public bool IsFadeOutPlaying { get { return fadeAnimation.IsPlaying("FadeOut"); } }
+    public bool IsFadeInPlaying { get { return fadeAnimation.IsPlaying("FadeIn"); } }
     void Start()
     {
-        cameraFadeAnimation = transform.FindChildByTag(Tags.CAMERA_EFFECT).GetComponent<Animation>();
-        if (cameraFadeAnimation.NotExist())
+        fadeAnimation = fadeFrame.GetComponent<Animation>();
+        if (camera.NotExist())
+            throw new Exception("Requered object os NULL");
+        if (fadeFrame.NotExist())
+            throw new Exception("Requered object os NULL");
+        if (fadeAnimation.NotExist())
             throw new Exception("Requered object os NULL");
         if (fadeInEffect)
             FadeIn();
@@ -27,11 +33,11 @@ public class CameraController : MonoBehaviour
 
     void FadeIn()
     {
-        cameraFadeAnimation.Play("FadeIn");
+        fadeAnimation.Play("FadeIn");
     }
 
     public void FadeOut()
     {
-        cameraFadeAnimation.Play("FadeOut");
+        fadeAnimation.Play("FadeOut");
     }
 }

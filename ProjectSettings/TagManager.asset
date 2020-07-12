@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraEffect
   - Controller
+  - ThrowThing
   layers:
   - Default
   - TransparentFX

@@ -10,4 +10,5 @@ public class Tags
 	public const string GAME_CONTROLLER = "GameController";
 	public const string CAMERA_EFFECT = "CameraEffect";
 	public const string CONTROLLER = "Controller";
+	public const string THROW_THING = "ThrowThing";
 }

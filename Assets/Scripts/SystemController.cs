@@ -22,10 +22,7 @@ public class SystemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return))
-        {
-            ChangeScene(Scenes.MAIN_MENU_SCENE);
-        }
+
     }
 
     private void FixedUpdate()

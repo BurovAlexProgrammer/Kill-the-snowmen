@@ -46,14 +46,14 @@ public class Throw: MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Layers.RAY_CASTER_PLANE_INT))
         {
-            Log($"result: {hit.point.x}-{hit.point.y}");
-            Debug.DrawLine(Camera.main.transform.position, hit.point, Color.green, 1);
-            var q = Quaternion.FromToRotation(Camera.main.transform.position, hit.transform.position);
-            var newThing = Instantiate(throwThing, Camera.main.transform.position, q);
-            var direction = hit.point - Camera.main.transform.position;
+            var throwStart = Camera.main.transform.position;
+            if (Camera.main.transform.childCount != 0)
+                throwStart = Camera.main.transform.GetChild(0).position;
+            Debug.DrawLine(throwStart, hit.point, Color.green, 1);
+            var q = Quaternion.FromToRotation(throwStart, hit.transform.position);
+            var newThing = Instantiate(throwThing, throwStart, q);
             newThing.SetActive(true);
-            newThing.GetComponent<Rigidbody>().AddForce((hit.point - Camera.main.transform.position) * throwForce);
-            //newThing.GetComponent<Rigidbody>().AddForceAtPosition(direction.normalized * throwForce, hit.transform.position);
+            newThing.GetComponent<Rigidbody>().AddForce((hit.point - throwStart) * throwForce);
         }
     }
 }

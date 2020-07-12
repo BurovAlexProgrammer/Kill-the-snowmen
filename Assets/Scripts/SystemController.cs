@@ -7,6 +7,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GlobalExtension;
 
+/// <summary>
+/// Control: 
+///  - scene changing
+/// </summary>
 public class SystemController : MonoBehaviour
 {
     public CameraController cameraController;
@@ -19,18 +23,17 @@ public class SystemController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         if (sceneChanging)
             ChangeScene(Scenes.MAIN_MENU_SCENE);
     }
 
+    /// <summary>
+    /// Change scene with fade out effect optional
+    /// </summary>
+    /// <param name="sceneName">Target scane name</param>
+    /// <param name="withFadeOut">Turn on fade out animation</param>
     public void ChangeScene(string sceneName, bool withFadeOut = true)
     {
         if (!withFadeOut)

@@ -8,6 +8,7 @@ public class DestroyAfterAnimation : MonoBehaviour
     private Animation anim; 
     void Start()
     {
+        //Check requered objects
         anim = this.GetComponent<Animation>();
         if (anim == null)
             throw new Exception("Requered Animation");

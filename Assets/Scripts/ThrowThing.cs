@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Behaviour of throw object
+/// </summary>
 public class ThrowThing : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField]
     float lifeTime;
+    [Tooltip("Prefab that appearence after destroy throw object (on collision or lifetime ended.)")]
     [SerializeField]
     GameObject onDestroy;
 
-
-
     void Start()
     {
-
     }
 
     private void FixedUpdate()

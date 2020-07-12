@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GlobalExtension;
 
+/// <summary>
+/// Control throw behaviour
+/// </summary>
 public class Throw: MonoBehaviour
 {
     [Tooltip("RayCaster plane for set direction of throw")]

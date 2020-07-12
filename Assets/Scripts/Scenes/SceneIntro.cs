@@ -13,6 +13,7 @@ public class SceneIntro : MonoBehaviour
 
     void Start()
     {
+        //Check requered objects
         systemControllerGameObject = GameObject.Find("SystemController");
         systemController = systemControllerGameObject.GetComponent<SystemController>();
         if (systemControllerGameObject == null)
@@ -21,7 +22,6 @@ public class SceneIntro : MonoBehaviour
             throw new Exception("systemController is null");
         if (systemController == null)
             throw new Exception("systemController is null");
-
         if (introAnimation == null)
             throw new Exception("Requered Animation");
         if (introAnimation.GetClipCount() == 0)

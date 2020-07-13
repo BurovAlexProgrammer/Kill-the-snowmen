@@ -9,7 +9,7 @@ public class DestroyAfterAnimation : MonoBehaviour
     void Start()
     {
         //Check requered objects
-        anim = this.GetComponent<Animation>();
+        anim = GetComponent<Animation>();
         if (anim == null)
             throw new Exception("Requered Animation");
         if (anim.GetClipCount() == 0)

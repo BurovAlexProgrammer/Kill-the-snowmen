@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] 
     bool fadeInEffect = true;
     [SerializeField]
-    GameObject fadeFrame;
+    GameObject fadeFrame = null;
     private Animation fadeAnimation;
     public bool IsFadeOutPlaying { get { return fadeAnimation.IsPlaying("FadeOut"); } }
     public bool IsFadeInPlaying { get { return fadeAnimation.IsPlaying("FadeIn"); } }
@@ -28,11 +28,25 @@ public class CameraController : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        //Turn off FadeFrame after animation
+        if (fadeInEffect)
+        {
+            if (!fadeAnimation.isPlaying)
+            {
+                fadeInEffect = false;
+                fadeFrame.SetActive(false);
+            }
+        }
+    }
+
     /// <summary>
     /// Animate fade in scene effect
     /// </summary>
     void FadeIn()
     {
+        fadeFrame.SetActive(true);
         fadeAnimation.Play("FadeIn");
     }
 
@@ -41,6 +55,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void FadeOut()
     {
+        fadeFrame.SetActive(true);
         fadeAnimation.Play("FadeOut");
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GlobalExtension;
 
-public class SceneIntro : MonoBehaviour
+public class SceneCredits : MonoBehaviour
 {
     GameObject systemControllerGameObject;
     SystemController systemController;
@@ -14,7 +14,7 @@ public class SceneIntro : MonoBehaviour
     void Start()
     {
         //Check requered objects
-        systemControllerGameObject = GameObject.Find("Controllers");
+        systemControllerGameObject = GameObject.Find("SystemController");
         systemController = systemControllerGameObject.GetComponent<SystemController>();
         if (systemControllerGameObject == null)
             throw new Exception("systemController is null");

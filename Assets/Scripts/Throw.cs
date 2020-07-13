@@ -11,14 +11,14 @@ public class Throw: MonoBehaviour
 {
     [Tooltip("RayCaster plane for set direction of throw")]
     [SerializeField]
-    Collider raycastPlane;
+    Collider raycastPlane = null;
     [Tooltip("Thing that you will throw")]
     [SerializeField]
-    GameObject throwThing;
+    GameObject throwThing = null;
     [SerializeField]
-    float throwForce;
+    float throwForce = 100;
     [SerializeField]
-    float fireRate;
+    float fireRate = 0;
     float fireTimer;
 
     void Start()
@@ -47,11 +47,11 @@ public class Throw: MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);  //TODO продумать кросс
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Layers.RAY_CASTER_PLANE_INT))
+        if (Physics.Raycast(ray, out hit, 30))
         {
             var throwStart = Camera.main.transform.position;
             if (Camera.main.transform.childCount != 0)
-                throwStart = Camera.main.transform.GetChild(0).position;
+                throwStart = GameObject.Find("ThrowStart").transform.position;
             Debug.DrawLine(throwStart, hit.point, Color.green, 1);
             var q = Quaternion.FromToRotation(throwStart, hit.transform.position);
             var newThing = Instantiate(throwThing, throwStart, q);

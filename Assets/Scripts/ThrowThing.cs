@@ -11,7 +11,7 @@ public class ThrowThing : MonoBehaviour
     float lifeTime;
     [Tooltip("Prefab that appearence after destroy throw object (on collision or lifetime ended.)")]
     [SerializeField]
-    GameObject onDestroy;
+    GameObject onDestroy = null;
 
     void Start()
     {

@@ -15,9 +15,12 @@ public class SystemController : MonoBehaviour
 {
     public CameraController cameraController;
     private bool sceneChanging = false;
+    private string nextSceneName = "";
 
     void Start()
     {
+        cameraController = GetComponent<CameraController>();
+        //Check requered objects
         if (cameraController.NotExist())
             throw new Exception("Requered object os NULL");
         
@@ -26,7 +29,7 @@ public class SystemController : MonoBehaviour
     private void FixedUpdate()
     {
         if (sceneChanging)
-            ChangeScene(Scenes.MAIN_MENU_SCENE);
+            ChangeScene(nextSceneName);
     }
 
     /// <summary>
@@ -36,9 +39,10 @@ public class SystemController : MonoBehaviour
     /// <param name="withFadeOut">Turn on fade out animation</param>
     public void ChangeScene(string sceneName, bool withFadeOut = true)
     {
+        nextSceneName = sceneName;
         if (!withFadeOut)
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(nextSceneName);
             return;
         }
         if (!sceneChanging)
@@ -47,6 +51,6 @@ public class SystemController : MonoBehaviour
             cameraController.FadeOut();
         }
         if (!cameraController.IsFadeOutPlaying)
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(nextSceneName);
     }
 }

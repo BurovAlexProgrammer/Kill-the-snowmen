@@ -156,6 +156,15 @@ public static class GlobalExtension
         bool isDestroyed { get; }
     }
 
+    public static void QuitGame()
+    {
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+         Application.Quit();
+    #endif
+    }
+
     public static class Effects
     {
         //public static void FadeInScene(this Camera camera)

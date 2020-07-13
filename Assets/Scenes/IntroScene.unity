@@ -826,6 +826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2284287552269499271, guid: 62a59560aefcc8e419e44468f86cbcde, type: 3}
+    - {fileID: 7481139849480399247, guid: 62a59560aefcc8e419e44468f86cbcde, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 62a59560aefcc8e419e44468f86cbcde, type: 3}
 --- !u!20 &783337199203786361
 Camera:

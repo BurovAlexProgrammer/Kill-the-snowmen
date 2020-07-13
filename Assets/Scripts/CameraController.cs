@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     public bool IsFadeInPlaying { get { return fadeAnimation.IsPlaying("FadeIn"); } }
     void Start()
     {
+        fadeFrame.SetActive(true);
         //Check requered objects
         fadeAnimation = fadeFrame.GetComponent<Animation>();
         if (fadeFrame.NotExist())
@@ -21,6 +22,8 @@ public class CameraController : MonoBehaviour
         //FadeIn scene effect
         if (fadeInEffect)
             FadeIn();
+        else
+            fadeFrame.SetActive(false);
     }
 
     void Update()

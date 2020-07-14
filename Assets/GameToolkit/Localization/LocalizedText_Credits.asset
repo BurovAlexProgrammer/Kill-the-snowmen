@@ -15,11 +15,5 @@ MonoBehaviour:
   m_LocaleItems:
   - m_Language: 10
     m_Value: Credits
-  - m_Language: 13
-    m_Value: Hyvitykset
-  - m_Language: 15
-    m_Value: Info
   - m_Language: 30
     m_Value: "\u041E\u0431 \u0438\u0433\u0440\u0435"
-  - m_Language: 34
-    m_Value: "Cr\xE9ditos"

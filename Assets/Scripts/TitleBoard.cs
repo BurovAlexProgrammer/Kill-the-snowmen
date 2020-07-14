@@ -9,7 +9,7 @@ using static GlobalExtension;
 /// </summary>
 public class TitleBoard : MonoBehaviour
 {
-    enum ActionNames {None, NewGame, Credits, Exit}
+    enum ActionNames {None, NewGame, Credits, Exit, Settings}
     [SerializeField]
     ActionNames actionName = ActionNames.None;
     GameObject systemControllerGameObject;
@@ -41,6 +41,9 @@ public class TitleBoard : MonoBehaviour
                 break;
             case ActionNames.Credits:
                 systemController.ChangeScene(Scenes.CREDITS_SCENE);
+                break;
+            case ActionNames.Settings:
+                systemController.ChangeScene(Scenes.SETTINGS_SCENE);
                 break;
             case ActionNames.Exit:
                 //TODO A u sure exit?

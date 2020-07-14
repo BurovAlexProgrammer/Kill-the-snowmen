@@ -5,4 +5,5 @@ public class Scenes
 	public const string MAIN_MENU_SCENE = "MainMenuScene";
 	public const string GAME_SCENE = "GameScene";
 	public const string CREDITS_SCENE = "CreditsScene";
+	public const string SETTINGS_SCENE = "SettingsScene";
 }

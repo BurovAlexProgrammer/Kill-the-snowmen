@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
     private Animation fadeAnimation;
     public bool IsFadeOutPlaying { get { return fadeAnimation.IsPlaying("FadeOut"); } }
     public bool IsFadeInPlaying { get { return fadeAnimation.IsPlaying("FadeIn"); } }
+    [SerializeField]
+    GameObject pausePanel = null;
     void Start()
     {
         fadeFrame.SetActive(true);
@@ -60,5 +62,15 @@ public class CameraController : MonoBehaviour
     {
         fadeFrame.SetActive(true);
         fadeAnimation.Play("FadeOut");
+    }
+
+    public void ShowPausePanel()
+    {
+        pausePanel.SetActive(true);
+    }
+
+    public void HidePausePanel()
+    {
+        pausePanel.SetActive(false);
     }
 }

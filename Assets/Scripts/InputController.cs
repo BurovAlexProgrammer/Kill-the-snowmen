@@ -7,15 +7,25 @@ using static GlobalExtension;
 
 public class InputController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    SystemController systemController;
+    CameraController cameraController;
     void Start()
     {
-        
+        systemController = GetComponent<SystemController>();
+        cameraController = GetComponent<CameraController>();
+        if (systemController.NotExist())
+            Error("SystemController not found.");
+        if (cameraController.NotExist())
+            Error("CameraController not found.");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            systemController.Pause();
+        } 
     }
 
     

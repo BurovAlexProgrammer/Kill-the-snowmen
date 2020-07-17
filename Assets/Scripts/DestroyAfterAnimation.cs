@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Depricated. Use SelfDestroying instead.
+/// </summary>
 public class DestroyAfterAnimation : MonoBehaviour
 {
     private Animation anim; 

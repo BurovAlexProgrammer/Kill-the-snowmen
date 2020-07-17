@@ -120,6 +120,16 @@ public static class GlobalExtension
     }
 
     /// <summary>
+    /// Check is null or destroyed current object and return bool.
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns>bool</returns>
+    public static bool Exist(this object obj)
+    {
+        return !obj.NotExist();
+    }
+
+    /// <summary>
     /// Check is null or destroyed current object and log error to console.
     /// </summary>
     /// <param name="obj"></param>

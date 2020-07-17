@@ -75,7 +75,7 @@ public class SystemController : MonoBehaviour
     public void Pause(bool enable)
     {
         isPaused = enable;
-        LockMouse(!enable);
+        //LockMouse(!enable);  //Пока без лока мыши, так будет интереснее
         if (enable)
         {
             Time.timeScale = 0;

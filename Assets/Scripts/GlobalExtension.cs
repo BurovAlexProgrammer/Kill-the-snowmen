@@ -175,13 +175,14 @@ public static class GlobalExtension
     #endif
     }
 
-    public static class Effects
+    /// <summary>
+    /// Set euler angle by axis Y
+    /// </summary>
+    /// <param name="transform"></param>
+    /// <param name="y"></param>
+    public static void SetEulerY(this Transform transform, float y)
     {
-        //public static void FadeInScene(this Camera camera)
-        //{
-        //    var frame = camera.gameObject.FindChildByTag(Tags.CAMERA_EFFECT);
-        //    frame.
-        //}
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, y, transform.eulerAngles.z);
     }
 
 }

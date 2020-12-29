@@ -17,7 +17,7 @@ public class SystemController : MonoBehaviour
     public CameraController cameraController;
     private bool sceneChanging = false;
     private string nextSceneName = "";
-    private bool isPaused = false;
+    public bool isPaused { get; private set; } = false;
     private bool lockMouse = false;
 
     void Start()

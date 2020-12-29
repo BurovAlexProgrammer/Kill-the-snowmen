@@ -7,6 +7,10 @@ using static GlobalExtension;
 
 public class InputController : MonoBehaviour
 {
+    [SerializeField]
+    [Range(0.1f, 10f)]
+    float mouseSensetive = 1f;
+
     SystemController systemController;
     CameraController cameraController;
     void Start()
@@ -26,6 +30,11 @@ public class InputController : MonoBehaviour
         {
             systemController.Pause();
         } 
+
+        if (!systemController.isPaused)
+        {
+            
+        }
     }
 
     

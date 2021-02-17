@@ -5,46 +5,40 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    Camera playerCamera;
     //Rotation
-    [Tooltip("Max camera rotation")]
+    [Tooltip("Max horizontal rotation")]
     [SerializeField]
     [Range(0, 360)]
-    int maxAngle;
-    float startRotation;
-    float rotateDiff = 0;
-
-    //Boost rotation
-    [Tooltip("Rotate boost on long press")]
+    int maxHorizontalAngle;
+    [Tooltip("Max vertical rotation")]
     [SerializeField]
-    float rotateBoost = 2;
-    [Tooltip("Enable boost after time in seconds")]
-    [SerializeField]
-    float rotateBoostTime = 1;
-    float rotateBooster = 1;
-    private float boostTimer;
-
+    [Range(0, 180)]
+    int maxVerticalAngle = 80;
+    //float startRotation;
+    //float rotateDiff = 0;
 
     void Start()
     {
-        startRotation = transform.eulerAngles.y;
+        //startRotation = transform.eulerAngles.y;
     }
 
-    private void FixedUpdate()
+    public void Rotate(Quaternion q)
     {
-        var rotation = Input.GetAxis("Horizontal") * rotateBooster;
-        rotateDiff += rotation;
-        if (rotation != 0)
-        {
-            if (Input.GetAxisRaw("Horizontal") != 0)
-                boostTimer -= Time.deltaTime;
-            else
-                boostTimer = rotateBoostTime;
-            rotateBooster = boostTimer < 0 ? rotateBoost : 1;
-            if (rotateDiff > maxAngle / 2)
-                rotateDiff = maxAngle / 2;
-            if (rotateDiff < maxAngle / 2 * -1)
-                rotateDiff = maxAngle / 2 * -1;
-        }
-        transform.SetEulerY(startRotation + rotateDiff);
+        var newRotation = transform.localRotation * q;
+        var angle = newRotation.eulerAngles.y.ConvertEulerAngle180();
+        if (angle <= maxHorizontalAngle / 2 &&
+            angle >= -maxHorizontalAngle / 2) 
+            transform.localRotation = newRotation;
+    }
+
+    public void TiltCamera(Quaternion q)
+    {
+        var newRotation = playerCamera.transform.localRotation * q;
+        var angle = newRotation.eulerAngles.x.ConvertEulerAngle180();
+        if (angle <= maxVerticalAngle/ 2 &&
+            angle >= -maxVerticalAngle / 2)
+            playerCamera.transform.localRotation = newRotation;
     }
 }

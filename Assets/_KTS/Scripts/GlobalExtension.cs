@@ -185,4 +185,27 @@ public static class GlobalExtension
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, y, transform.eulerAngles.z);
     }
 
+    /// <summary>
+    /// Return euler angle on range (-180 : 180)
+    /// </summary>
+    /// <param name="val">Angle</param>
+    /// <returns></returns>
+    public static float ConvertEulerAngle180(this float input)
+    {
+        while (input > 360)
+        {
+            input = input - 360;
+        }
+        while (input < -360)
+        {
+            input = input + 360;
+        }
+        if (input > 180)
+        {
+            input = input - 360;
+        }
+        if (input < -180)
+            input = 360 + input;
+        return input;
+    }
 }
